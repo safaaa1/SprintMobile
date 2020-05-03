@@ -30,9 +30,28 @@ public class Evenement {
         this.image = image;
     }
 
-    public Evenement() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Evenement(int idEvent, String nom, String type, int nbrPlace, String dressCode) {
+        this.idEvent = idEvent;
+        this.nom = nom;
+        this.type = type;
+        this.nbrPlace = nbrPlace;
+        this.dressCode = dressCode;
     }
+
+    public Evenement() {
+    }
+
+    public Evenement(int idEvent, String nom, String type, int nbrPlace, String dressCode, String image) {
+        this.idEvent = idEvent;
+        this.nom = nom;
+        this.type = type;
+        this.nbrPlace = nbrPlace;
+        this.dressCode = dressCode;
+        this.image = image;
+    }
+
+   
+   
 
     @Override
     public String toString() {
