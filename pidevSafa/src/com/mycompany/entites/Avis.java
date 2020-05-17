@@ -31,6 +31,11 @@ public class Avis {
         return nom;
     }
 
+    public Avis(String description, double rating) {
+        this.description = description;
+        this.rating = rating;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -116,9 +121,12 @@ public class Avis {
 
     @Override
     public String toString() {
-        return "Avis{" + "idAvis=" + idAvis + ", description=" + description + ", idEvent=" + idEvent + ", idParent=" + idParent + ", idUtilisateur=" + idUtilisateur + ", rating=" + rating + ", nom=" + nom + ", nomUser=" + nomUser + '}';
+        return "Avis{" + "idAvis=" + idAvis + ", description=" + description + ", idEvent=" + idEvent + ", idParent=" + idParent + ", idUtilisateur=" + idUtilisateur + ", rating=" + rating + '}';
     }
-        
+
+    
+
+   
         
         
         

@@ -53,9 +53,8 @@ public class AvisForm extends Form {
     public void setIdEvent(Integer idEvent) {
         this.idEvent = idEvent;
     }
-    double r=0;
+     double r=0;
     
-    Slider starRank = new Slider();
      Avis t= new Avis();
     public AvisForm(int id) {
       //  Slider starRank = new Slider();
@@ -87,14 +86,14 @@ public class AvisForm extends Form {
         c7.addAll(btAvis);
         
         c_f.addAll(c1,c7);
+
     btAvis.addActionListener(new ActionListener() {
            @Override
             public void actionPerformed(ActionEvent evt) {
                 System.out.println("begin add avis");
                 Avis a = new Avis();
                 a.setDescription(txMail.getText());
-                a.getIdEvent();
-                a.setRating(r);
+               // a.getIdEvent();
                  boolean idA = ServiceAvis.getInstance().avis(a,id);
                //ServiceAvis.getInstance().avis(idA);
                         btAvis.addActionListener(e-> new ListAvisForm(current).show());
@@ -108,18 +107,9 @@ public class AvisForm extends Form {
            
 
    
-     c_f.add(FlowLayout.encloseCenter(createStarRankSlider()));
-    
-    starRank.addActionListener(
-        e->{Dialog.show("Evaluation ", "Merci d'evaluer notre event", "OK", "Annuler");
-         System.out.println(starRank.getProgress());
-            r=starRank.getProgress() ;
-            System.out.println("aaa"+r);
-           });
- 
- 
+
    
-   btAvis.addActionListener(new ActionListener() {
+   /*btAvis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                
@@ -147,11 +137,13 @@ public class AvisForm extends Form {
             }
         }); 
     
-   
+   */
    
 
    
   
+   
+ 
  
 
       
@@ -166,33 +158,7 @@ public class AvisForm extends Form {
     
 
     
-    private void initStarRankStyle(Style s, Image star) {
-    s.setBackgroundType(Style.BACKGROUND_IMAGE_TILE_BOTH);
-    s.setBorder(Border.createEmpty());
-    s.setBgImage(star);
-    s.setBgTransparency(0);
-}
-
-private Slider createStarRankSlider() {
     
-    starRank.setEditable(true);
-    starRank.setMinValue(0);
-    starRank.setMaxValue(5);
-    Font fnt = Font.createTrueTypeFont("native:MainLight", "native:MainLight").
-            derive(Display.getInstance().convertToPixels(5, true), Font.STYLE_PLAIN);
-    Style s = new Style(0xffff33, 0, fnt, (byte)0);
-    Image fullStar = FontImage.createMaterial(FontImage.MATERIAL_STAR, s).toImage();
-    s.setOpacity(100);
-    s.setFgColor(0);
-    Image emptyStar = FontImage.createMaterial(FontImage.MATERIAL_STAR, s).toImage();
-    initStarRankStyle(starRank.getSliderEmptySelectedStyle(), emptyStar);
-    initStarRankStyle(starRank.getSliderEmptyUnselectedStyle(), emptyStar);
-    initStarRankStyle(starRank.getSliderFullSelectedStyle(), fullStar);
-    initStarRankStyle(starRank.getSliderFullUnselectedStyle(), fullStar);
-    starRank.setPreferredSize(new Dimension(fullStar.getWidth() * 5, fullStar.getHeight()));
-    return starRank;
-}
-
     AvisForm(Form current) {
    
     }

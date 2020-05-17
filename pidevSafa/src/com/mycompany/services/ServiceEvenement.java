@@ -94,7 +94,21 @@ public class ServiceEvenement {
         return events;
     }
     
-     
+      public ArrayList<Evenement> detail(int id){
+        String url = "http://127.0.0.1/PiFOS/Pi/web/app_dev.php/DetailM/" +id;
+        connectionRequest.setUrl(url);
+        connectionRequest.setPost(false);
+        connectionRequest.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                events = parseEvents(new String(connectionRequest.getResponseData()));
+                connectionRequest.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(connectionRequest);
+        return events;
+    }
+    
       
       
       

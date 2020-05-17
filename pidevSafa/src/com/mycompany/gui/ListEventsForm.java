@@ -41,6 +41,10 @@ public class ListEventsForm extends Form {
     Form current;
 
     public ListEventsForm(Resources theme) {
+       
+        //  current = this;
+        
+        
         Toolbar.setGlobalToolbar(true);
         //   getToolbar().addCommandToLeftBar("",theme.getImage("back.png"), e->new Home(theme).show());
         Style s = UIManager.getInstance().getComponentStyle("Title");
@@ -119,7 +123,9 @@ public class ListEventsForm extends Form {
             searchField.startEditingAsync(); // <4>
         });
 
-        //  current = this;
+
+
+
         Container liste = new Container(BoxLayout.y());
         for (Evenement produit : ServiceEvenement.getInstance().getAllEvents()) {
             CelluleEvenement celluleProduit = new CelluleEvenement(produit, theme);

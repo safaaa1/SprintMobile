@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -22,6 +23,8 @@ import com.mycompany.entities.fosUser.Utilisateur;
 import com.mycompany.services.ServiceEvenement;
 import com.mycompany.services.ServiceReservation;
 import com.codename1.io.Util;
+import com.codename1.notifications.LocalNotification;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.URLImage;
@@ -135,6 +138,16 @@ public class CelluleEvenement extends Form{
           
 
                 System.out.println(ServiceReservation.getInstance().dec(Integer.parseInt(lbId2.getText())));
+                 LocalNotification ln = new LocalNotification();
+            ln.setId("LnMessage");
+            ln.setAlertTitle("salut");
+            ln.setAlertBody("merci d'aariver à Caritas!");
+          Display.getInstance().scheduleLocalNotification( ln,
+                System.currentTimeMillis() + 10 * 10, // fire date/time
+                LocalNotification.REPEAT_MINUTE  // Whether to repeat and what frequency);
+          );
+                Dialog.show("Succès", "Votre reservation est effectuee", "Ok", null); 
+   
                new ListEventsForm(theme).show();
             }
         });
@@ -149,6 +162,13 @@ public class CelluleEvenement extends Form{
 
             }
         });
+         
+         
+        
+         
+         
+         
+         
         
         btPartage.addActionListener((evt) -> {
             Display.getInstance().execute("https://www.facebook.com/sharer/sharer.php?u="+
@@ -175,3 +195,7 @@ public class CelluleEvenement extends Form{
     
     
 }
+
+
+
+

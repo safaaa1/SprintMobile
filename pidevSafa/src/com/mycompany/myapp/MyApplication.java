@@ -67,14 +67,14 @@ public class MyApplication {
             current.show();
             return;
         }
-            new login(theme).show();
+           new login(theme).show();
 
           //  new ReservationForm().show();
               //new ListAvisForm().show();
              // new ListParentForm().show();
-    // new AjoutParentForm().show();
+         //new AjoutParentForm().show();
               //new AvisForm().show();
-        //new ListEventsForm(theme).show();
+       // new ListEventsForm(theme).show();
              // new LocalNotificationTest().start();
          //new ListParentForm().show();
    }

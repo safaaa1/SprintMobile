@@ -40,7 +40,15 @@ public class AjoutParentForm extends Form {
     public AjoutParentForm()  {
         
         current = this;
-           
+           LocalNotification n = new LocalNotification();
+        n.setId("demo-notification");
+        n.setAlertBody("It's time to take a break and look at me");
+        n.setAlertTitle("Break Time!");
+        Display.getInstance().scheduleLocalNotification(
+                n,
+                System.currentTimeMillis() + 10 * 1000, // fire date/time
+                LocalNotification.REPEAT_MINUTE // Whether to repeat and what frequency
+        ); 
         
         Container c1 = new Container(BoxLayout.x());
         Label lbMail = new Label("Nom : ");
@@ -110,16 +118,7 @@ public class AjoutParentForm extends Form {
                         Parent t = new Parent(txMail.getText(),txPays.getText(),  txVille.getText(), txPin.getText(), Integer.parseInt(txNumTel.getText()));
                         if( ServiceParent.getInstance().createMedecin(t)){
                             
-                        
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+                       
                             
                             Dialog.show("Success","Connection accepted",new Command("OK"));
                                         btValider.addActionListener(e-> new ListParentForm(current).show());
@@ -162,6 +161,7 @@ public class AjoutParentForm extends Form {
         c_f.add(btValider);
         
         add(c_f);
+       
         
     }
 

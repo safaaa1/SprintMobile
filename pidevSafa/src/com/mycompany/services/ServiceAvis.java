@@ -104,6 +104,7 @@ public class ServiceAvis {
     public ArrayList<Avis> getAllAvis(){
         String url = "http://127.0.0.1/PiFOS/Pi/web/app_dev.php/affM";
         connectionRequest.setUrl(url);
+        
         connectionRequest.setPost(false);
         connectionRequest.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -139,6 +140,8 @@ public class ServiceAvis {
      public boolean avis(Avis a,int idEvent) {
          System.out.println(a);
         String url = "http://127.0.0.1/PiFOS/Pi/web/app_dev.php/avisMobile/"+idEvent+"/"+userService.ti.getId()+"?description="+a.getDescription()+"&rating="+a.getRating();
+               connectionRequest.setUrl(url);
+
         connectionRequest.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
