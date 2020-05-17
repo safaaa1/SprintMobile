@@ -26,6 +26,19 @@ public class Parent {
         this.tel = tel;
     }
 
+    public Parent(String nom, String prenom, String email, String mdp, int tel) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.mdp = mdp;
+        this.tel = tel;
+    }
+
+    public Parent() {
+    }
+
+   
+
     public int getId() {
         return id;
     }

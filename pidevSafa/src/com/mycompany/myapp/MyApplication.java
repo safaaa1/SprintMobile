@@ -13,7 +13,19 @@ import com.codename1.ui.Toolbar;
 import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
-import com.mycompany.gui.ListeEventsForm;
+import com.codename1.notifications.LocalNotificationCallback;
+import com.mycompany.entites.Avis;
+import com.mycompany.entities.fosUser.Utilisateur;
+import com.mycompany.gui.AjoutParentForm;
+import com.mycompany.gui.AvisForm;
+import com.mycompany.gui.ListAvisForm;
+import com.mycompany.gui.ListEventsForm;
+import com.mycompany.gui.ListParentForm;
+import com.mycompany.gui.LocalNotificationTest;
+import com.mycompany.gui.ReservationForm;
+import com.mycompany.myapp.gui.login.login;
+import com.mycompany.services.ServiceParent;
+import java.util.ArrayList;
 
 
 /**
@@ -24,6 +36,7 @@ public class MyApplication {
 
     private Form current;
     private Resources theme;
+   // public static Utilisateur user = null;
 
     public void init(Object context) {
         // use two network threads instead of one
@@ -45,7 +58,8 @@ public class MyApplication {
             }
             Log.sendLogAsync();
             Dialog.show("Connection Error", "There was a networking error in the connection to " + err.getConnectionRequest().getUrl(), "OK", null);
-        });        
+        }); 
+        
     }
     
     public void start() {
@@ -53,10 +67,17 @@ public class MyApplication {
             current.show();
             return;
         }
-              
-                new ListeEventsForm().show();
+            new login(theme).show();
 
-    }
+          //  new ReservationForm().show();
+              //new ListAvisForm().show();
+             // new ListParentForm().show();
+    // new AjoutParentForm().show();
+              //new AvisForm().show();
+        //new ListEventsForm(theme).show();
+             // new LocalNotificationTest().start();
+         //new ListParentForm().show();
+   }
 
     public void stop() {
         current = getCurrentForm();
@@ -69,4 +90,6 @@ public class MyApplication {
     public void destroy() {
     }
 
+    
+ 
 }

@@ -41,15 +41,7 @@ public class Evenement {
     public Evenement() {
     }
 
-    public Evenement(int idEvent, String nom, String type, int nbrPlace, String dressCode, String image) {
-        this.idEvent = idEvent;
-        this.nom = nom;
-        this.type = type;
-        this.nbrPlace = nbrPlace;
-        this.dressCode = dressCode;
-        this.image = image;
-    }
-
+   
    
    
 
