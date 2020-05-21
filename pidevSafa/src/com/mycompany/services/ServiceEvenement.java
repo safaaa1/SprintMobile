@@ -29,7 +29,7 @@ public class ServiceEvenement {
     public boolean resultOK;
     private ConnectionRequest connectionRequest;
     
-    private ServiceEvenement() {
+    public ServiceEvenement() {
          connectionRequest = new ConnectionRequest();
     }
     
@@ -240,7 +240,21 @@ public class ServiceEvenement {
         NetworkManager.getInstance().addToQueueAndWait(connectionRequest);
         return resultOK;
     }  
-      
-      
-      
+   
+  String response;
+
+    public int nbLike(String id) {
+
+        ConnectionRequest con = new ConnectionRequest();
+        con.setUrl("http://127.0.0.1/PiFOS/Pi/web/app_dev.php/b/" + id);
+        con.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                response = new String(con.getResponseData());
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(con);
+        return Integer.parseInt(response);
+    }
+    
 }

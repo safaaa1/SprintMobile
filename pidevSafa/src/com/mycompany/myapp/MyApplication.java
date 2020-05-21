@@ -1,6 +1,11 @@
 package com.mycompany.myapp;
 
 
+import com.codename1.capture.Capture;
+import com.codename1.codescan.CodeScanner;
+import com.codename1.codescan.ScanResult;
+import com.codename1.components.MultiButton;
+import com.codename1.io.FileSystemStorage;
 import static com.codename1.ui.CN.*;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
@@ -13,9 +18,25 @@ import com.codename1.ui.Toolbar;
 import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
+import com.codename1.io.Util;
+import com.codename1.l10n.SimpleDateFormat;
+import com.codename1.media.Media;
+import com.codename1.media.MediaManager;
 import com.codename1.notifications.LocalNotificationCallback;
+import com.codename1.ui.Button;
+import com.codename1.ui.ButtonGroup;
+import com.codename1.ui.Container;
+import com.codename1.ui.FontImage;
+import com.codename1.ui.Graphics;
+import com.codename1.ui.Image;
+import com.codename1.ui.RadioButton;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.plaf.Style;
 import com.mycompany.entites.Avis;
 import com.mycompany.entities.fosUser.Utilisateur;
+import com.mycompany.gui.AffichageStat;
 import com.mycompany.gui.AjoutParentForm;
 import com.mycompany.gui.AvisForm;
 import com.mycompany.gui.ListAvisForm;
@@ -23,9 +44,11 @@ import com.mycompany.gui.ListEventsForm;
 import com.mycompany.gui.ListParentForm;
 import com.mycompany.gui.LocalNotificationTest;
 import com.mycompany.gui.ReservationForm;
+import com.mycompany.gui.stat;
 import com.mycompany.myapp.gui.login.login;
 import com.mycompany.services.ServiceParent;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -37,6 +60,7 @@ public class MyApplication {
     private Form current;
     private Resources theme;
    // public static Utilisateur user = null;
+  public static Utilisateur ti;
 
     public void init(Object context) {
         // use two network threads instead of one
@@ -67,14 +91,127 @@ public class MyApplication {
             current.show();
             return;
         }
-           new login(theme).show();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+  /*      
+    Form hi = new Form("Capture", BoxLayout.y());
+hi.setToolbar(new Toolbar());
+Style s = UIManager.getInstance().getComponentStyle("Title");
+FontImage icon = FontImage.createMaterial(FontImage.MATERIAL_MIC, s);
 
-          //  new ReservationForm().show();
+FileSystemStorage fs = FileSystemStorage.getInstance();
+String recordingsDir = fs.getAppHomePath() + "recordings/";
+fs.mkdir(recordingsDir);
+try {
+    for(String file : fs.listFiles(recordingsDir)) {
+        MultiButton mb = new MultiButton(file.substring(file.lastIndexOf("/") + 1));
+        mb.addActionListener((e) -> {
+            try {
+                Media m = MediaManager.createMedia(recordingsDir + file, false);
+                m.play();
+            } catch(IOException err) {
+                Log.e(err);
+            }
+        });
+        hi.add(mb);
+    }
+
+    hi.getToolbar().addCommandToRightBar("", icon, (ev) -> {
+        try {
+            String file = Capture.captureAudio();
+            if(file != null) {
+                SimpleDateFormat sd = new SimpleDateFormat("yyyy-MMM-dd-kk-mm");
+                String fileName =sd.format(new Date());
+                String filePath = recordingsDir + fileName;
+                Util.copy(fs.openInputStream(file), fs.openOutputStream(filePath));
+                MultiButton mb = new MultiButton(fileName);
+                mb.addActionListener((e) -> {
+                    try {
+                        Media m = MediaManager.createMedia(filePath, false);
+                        m.play();
+                    } catch(IOException err) {
+                        Log.e(err);
+                    }
+                });
+                hi.add(mb);
+                hi.revalidate();
+            }
+        } catch(IOException err) {
+            Log.e(err);
+        }
+    });
+} catch(IOException err) {
+    Log.e(err);
+}
+//hi.show();
+       
+      
+  */     
+       
+       
+  //new stat().show();
+      // new login(theme).show();
+//new AffichageStat().getF().show();
+     // new ReservationForm().show();
               //new ListAvisForm().show();
              // new ListParentForm().show();
-         //new AjoutParentForm().show();
+       //new AjoutParentForm().show();
               //new AvisForm().show();
-       // new ListEventsForm(theme).show();
+   new ListEventsForm(theme).show();
+   //hi.show();
              // new LocalNotificationTest().start();
          //new ListParentForm().show();
    }

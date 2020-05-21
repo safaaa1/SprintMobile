@@ -9,6 +9,7 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
+import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
@@ -57,11 +58,12 @@ public class CelluleParent extends Form{
         
          
         Container c5 = new Container(BoxLayout.x());
-        Label lbMdp = new Label("mdp : ");
-        Label lbMdp2 = new Label(parent.getMdp());
+        TextField lbMdp = new TextField("mdp : ");
+        TextField lbMdp2 = new TextField(parent.getMdp());
+   lbMdp2.setConstraint(lbMdp2.PASSWORD);
+
         c5.add(lbMdp);
         c5.add(lbMdp2);
-        
         
         Container c6 = new Container(BoxLayout.x());
         Label lbTel = new Label("tel : ");

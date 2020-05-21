@@ -5,13 +5,17 @@
  */
 package com.mycompany.services;
 
+import com.codename1.components.InfiniteProgress;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
+import com.codename1.io.MultipartRequest;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.fosUser.Utilisateur;
+import com.mycompany.myapp.MyApplication;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,5 +112,26 @@ public class userService {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return ti;
     }
-    
+  
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+
 }

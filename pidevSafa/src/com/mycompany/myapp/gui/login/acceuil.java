@@ -45,6 +45,7 @@ public class acceuil extends Form {
      public acceuil(Form previous)
      {
      current=this;
+     
         setTitle("Acceuil");
         setLayout(BoxLayout.y());
 Style loginStyle= getAllStyles();

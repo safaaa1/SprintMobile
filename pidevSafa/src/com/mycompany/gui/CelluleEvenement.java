@@ -126,9 +126,12 @@ public class CelluleEvenement extends Form{
         Button btPar = new Button("Participer");
       Button btAvis = new Button("Commentaire");
       Button btPartage = new Button("Partager");
+      Button btnstat = new Button("stat");
+      Button btndetail= new Button("details");
 
-        c7.addAll(btPar,btAvis,btPartage);
-        
+        c7.addAll(btPar,btAvis,btPartage,btnstat);
+     btnstat.addActionListener((evt) -> {new stat().createPieChartForm().show();
+        }); 
     btPar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -165,6 +168,17 @@ public class CelluleEvenement extends Form{
          
          
         
+          btndetail.addActionListener(e-> new detailForm(current).show());
+        
+        
+         btndetail.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                        btndetail.addActionListener(e-> new detailForm(current).show());
+                new detailForm(current).show();
+
+            }
+        });
          
          
          

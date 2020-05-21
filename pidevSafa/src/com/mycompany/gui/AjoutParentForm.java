@@ -77,12 +77,13 @@ public class AjoutParentForm extends Form {
         
         
         Container c4 = new Container(BoxLayout.x());
-        Label lbPin = new Label("mdp : ");
-        TextField txPin = new TextField("", "mdp");
-        c4.add(lbPin);
-        c4.add(txPin);
-        
-        
+           
+        Label lbMdp = new Label("mdp : ");
+        TextField lbMdp2 = new TextField("", "mot de passe");
+   lbMdp2.setConstraint(lbMdp2.PASSWORD);
+
+     c4.add(lbMdp);
+        c4.add(lbMdp2);   
         
          Container c5 = new Container(BoxLayout.x());
         Label lbNumTel = new Label("Num tel : ");
@@ -110,18 +111,29 @@ public class AjoutParentForm extends Form {
                 btValider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                if ((txMail.getText().length()==0)||(txPays.getText().length()==0))
-                    Dialog.show("Alert", "Please fill all the fields", new Command("OK"));
+                if ((txMail.getText().length()==0)||(txPays.getText().length()==0) ||(txVille.getText().length()==0) ||(lbMdp2.getText().length()==0) ||(txNumTel.getText().length()==0))
+                     Dialog.show("Alert", "Please fill all the fields", new Command("OK"));
+                
                 else
                 {
                     try {
-                        Parent t = new Parent(txMail.getText(),txPays.getText(),  txVille.getText(), txPin.getText(), Integer.parseInt(txNumTel.getText()));
+                        Parent t = new Parent(txMail.getText(),txPays.getText(),  txVille.getText(), lbMdp2.getText(), Integer.parseInt(txNumTel.getText()));
                         if( ServiceParent.getInstance().createMedecin(t)){
                             
                        
                             
                             Dialog.show("Success","Connection accepted",new Command("OK"));
                                         btValider.addActionListener(e-> new ListParentForm(current).show());
+                                           LocalNotification ln = new LocalNotification();
+            ln.setId("LnMessage");
+            ln.setAlertTitle("salut");
+            ln.setAlertBody("merci d'aariver à Caritas!");
+          Display.getInstance().scheduleLocalNotification( ln,
+                System.currentTimeMillis() + 10 * 10, // fire date/time
+                LocalNotification.REPEAT_MINUTE  // Whether to repeat and what frequency);
+          );
+                Dialog.show("Succès", "Ajout effectue", "Ok", null); 
+   
                                                         new ListParentForm().show();
 
                         }

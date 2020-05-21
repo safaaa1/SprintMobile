@@ -136,4 +136,7 @@ public class ListEventsForm extends Form {
 
     }
 
+    ListEventsForm() {
+    }
+
 }
